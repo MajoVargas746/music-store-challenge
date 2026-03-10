@@ -24,4 +24,12 @@ class Disc:
     def add_song(self, song: str):
         self.song_list.append(song)
 
+    def sell(self, copies: int):
+        if copies > self.quantity:
+            return False
+
+        self.quantity -= copies
+        self.transactions.append(Transaction(Transaction.SELL, copies))
+        return True
+
 
